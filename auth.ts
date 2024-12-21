@@ -6,6 +6,7 @@ import { sql } from "@vercel/postgres";
 import type { User } from "@/app/lib/definitions";
 import bcrypt from "bcrypt";
 
+// Get user from DB using email address
 async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
